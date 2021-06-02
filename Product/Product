@@ -1,0 +1,44 @@
+package com.example.products;
+
+import androidx.annotation.NonNull;
+import androidx.room.Delete;
+import androidx.room.Entity;
+import androidx.room.Insert;
+import androidx.room.PrimaryKey;
+import androidx.room.Update;
+
+import java.util.Locale;
+
+@Entity(tableName = "products")
+public class Product {
+
+    @PrimaryKey
+    @NonNull
+    int _id;
+    @NonNull
+    String name, vendor;
+    @NonNull
+    Integer price;
+    @NonNull
+    int category_id;
+
+//    public Product() {
+//        this._id = 1;
+//        this.category_id = 1;
+//        this.name = "";
+//        this.vendor = "";
+//        this.price = 1;
+//    }
+
+    public Product(int _id, @NonNull int category_id, @NonNull String name, @NonNull String vendor, Integer price) {
+        this._id = _id;
+        this.category_id = category_id;
+        this.name = name;
+        this.vendor = vendor;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() { return String.format(Locale.getDefault(), "%s: %s (%d)", name, vendor , price); }
+
+}
